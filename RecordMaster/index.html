@@ -69,15 +69,11 @@
             <div class="col-lg-12 text-center">
                 <h1>Welcome to your Fart Jar!</h1>
                 <p class="lead">Feel free to press the button below to star recoding you faltulance</p>
-                <button onclick="startRecording(this);" type="button" class="btn btn-success">Start The Fart!</button><br/><br/>
-                <button type="button" onclick="stopRecording(this);" class="btn btn-danger">Stop The Fart!</button><br/><br/>
+                <button onmousedown="startRecording(this);" onmouseup="stopRecording(this);" type="button" class="btn btn-success">Start The Fart!</button><br/><br/>
             </div>
 
   <h2>Recordings link</h2>
   <ul id="recordingslist"></ul>
-
-  <h2>Log</h2>
-  <pre id="log"></pre>
 
   <script>
   function __log(e, data) {
@@ -104,14 +100,12 @@
 
   function startRecording(button) {
     recorder && recorder.record();
-    button.disabled = true;
     button.nextElementSibling.disabled = false;
     __log('Recording...');
   }
 
   function stopRecording(button) {
     recorder && recorder.stop();
-    button.disabled = true;
     button.previousElementSibling.disabled = false;
     __log('Stopped recording.');
 
