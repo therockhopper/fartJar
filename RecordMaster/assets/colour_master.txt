@@ -1,0 +1,10 @@
+light orange: #f29f24 (lid)
+
+dark orange:#e06626 (bg)
+
+green: #bbda86 (active)
+
+white: #f0efef
+
+black: #000000
+
