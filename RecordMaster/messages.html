@@ -1,0 +1,119 @@
+<html>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   <script src="js/jquery-1.11.0.min.js"></script>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Fart Jar</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Sign In</a>
+                    </li>
+                    <li>
+                        <a href="#">Collection</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Record Fart</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <script>
+	function getMessages() {
+
+	    $.getJSON( "10.10.1.204:8080/MyMessages/4" , function( data ) {
+	      var items = [];
+	      $.each( data, function( key, val ) {
+		items.push( "<li id='" + key + "'>" + val + "</li>" );
+	      });
+	     
+	      $( "<ul/>", {
+		"class": "my-new-list",
+		html: items.join( "" )
+	      }).appendTo( "body" );
+	    });
+
+	}
+    </script>
+
+<script>
+function animate_and_play(img_id, url) {
+    var player = document.getElementById('player');
+    if (!player.paused) {
+	player.pause();
+	img.src = 'img/full_jar.png';
+    }
+    var img = document.getElementById(1);
+    img.src = 'img/open_jar.png';
+    player.src = url
+    player.play();
+
+    player.addEventListener("ended", function() {
+		img.src = 'img/plain_jar.png';
+	    });
+}
+
+</script>
+
+
+    <div class="row" style="margin-top:200px; margin-left:200px">
+	<button onclick="getMessages()">test server</button>
+	<div class="col-lg-12">
+	<audio controls id="player">
+	  <source src="audio/test.mp3" type="audio/mpeg">
+	</audio>
+	</div>
+
+
+	{% for jar in jar_collection %} 
+        <div class="col-lg-4 col-md-6 col-xs-12">
+	    <img width="200px" src="img/full_jar.png" id="1" onclick="animate_and_play(1,'audio/test.mp3')" alt="">
+	</div>
+	{% endfor %} 
+
+        <div class="col-lg-4 col-md-6 col-xs-12">
+	    <img src="img/full_jar.png" alt="">
+	</div>
+
+        <div class="col-lg-4 col-md-6 col-xs-12">
+	    <img src="img/open_jar.png" alt="">
+	</div>
+    </div>
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+
