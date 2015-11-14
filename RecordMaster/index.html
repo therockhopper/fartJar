@@ -37,6 +37,21 @@
                            'Hear my Roar' + '&body= Click the attachment to hear my Roar!' );
             $('#fr1').submit();
                 });
+               
+               //Image rollover
+            $(document).ready(function () {
+                $("#btnDollarLimit").hover(
+                    function () {
+                        var target = $(this).attr("src").replace("_off", "_on");
+                        //console.log("test: " + target);
+                        $(this).attr("src", target);
+                    },
+                    function () {
+                        var target = $(this).attr("src").replace("_on", "_off");
+                        //console.log("test: " + target);
+                        $(this).attr("src", target);
+                    });
+               
             });
     </script>
 
