@@ -27,6 +27,20 @@
     #recordingslist audio { display: block; margin-bottom: 10px; }
   </style>
    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript">
+            // JQuery entry point
+           $(document).ready(function() {
+            $('#btnE').email(function() {
+            $('#fr1').attr('action',
+                           'mailto:'+ $('#tb1').val() + '?subject=' +
+                           'Hear my Roar' + '&body= Click the attachment to hear my Roar!' );
+            $('#fr1').submit();
+                });
+            });
+    </script>
+
+    
 </head>
 <body>
     
@@ -82,8 +96,10 @@
             <div class="col-lg-12 text-center">
                 <h3>Inform Your freinds about your Extra Gassy Day</h3>
                 <p class="lead">Then click the button below to send them an email with attachment that sums up your taco bell experince!</p>
-                <button onmousedown="startRecording(this);" onmouseup="stopRecording(this);" type="button" class="btn btn-success">Share The Fart!</button><br/><br/>
-                <ul id="recordingslist"></ul>
+                <form id="fr1">
+                    <input type="text" id="tb1" />
+                    <button id="btnE" value="email" type="button" class="btn btn-success">Share The Fart!</button>
+                </form>
             </div>
         </div>
 
@@ -126,6 +142,7 @@
 
     recorder.clear();
   }
+      
 
   function createDownloadLink() {
     recorder && recorder.exportWAV(function(blob) {
