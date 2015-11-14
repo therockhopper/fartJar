@@ -1,2 +1,28 @@
 @import '//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css';
 @import '//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css';
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #bbda86;
+    background-color: transparent;
+}
+body {
+	background-color:#e06626;
+	
+}
+
+.form-control {
+	    border: 2px solid #000;
+    border-radius: 13px;
+}
+
+.form-inline {
+	text-align: center;
+}
+
+.btn-default {
+	color: black;
+	background-color: #bbda86;
+}
+
+.col-lg-12 column form {
+	display-inline;
+}
